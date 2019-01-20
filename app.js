@@ -18,6 +18,10 @@ var blogSchema = new mongoose.Schema({
 });
 var Blog = mongoose.model("Blog", blogSchema);
 
+app.listen(3001, function(){
+    console.log("listening on 3001");
+});
+
 //INDEX ROUTE
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){

@@ -13,24 +13,53 @@
   </div>
 </div> 
 </div>-->
+<script>function handleSubscribe(event){
+    console.log("function was run!")
+    var userEmail = $('#email').val();
+    var userName = $('#name').val();
+    console.log(userName);
+    console.log(userEmail);
+    event.preventDefault();
+    $.ajax({
+        url: '/newsletter',
+        type: 'POST',
+        data: {
+                email: userEmail,
+                name: userName
+        },
+        success: function(response){
+            console.log(response);
+        }
+    })
+}</script>
+
 
 <section class="widget widget_blog_subscription">
-  <form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="subscribe-blog">
+  <form action="/newsletter" method="post" id="subscribe-blog" autocomplete="off" onSubmit="handleSubscribe(event) & showHide()">
     <p>Subscribe</p>
     <p>
-      <input type="text" name="email" style="width: 95%; padding: 1px 2px" placeholder="Enter your email address" value="" id="subscribe-field">
+      <input type="name" name="subscribe[name]" style="width: 95%; padding: 1px 2px" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" value="" id="name">
+      <input type="email" name="subscribe[email]" style="width: 95%; padding: 1px 2px" placeholder="Enter your email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your email address'" value="" id="email">
     </p>
+
+<% var displayStatus = "none"; %>
+
+<div id="hidden_div" style="display: none">
+    <div id="newsletterSuccess">
+    <header></header>
+    <p><i class="check circle icon"></i>You're all signed up for the newsletter.</p>
+  </div>
+</div>
+
     <p>
-      <input type="hidden" name="action" value="subscribe">
-      <input type="hidden" name="blog_id" value="109214814">
-      <input type="hidden" name="source" value="https://rosaliedemo.wordpress.com/">
-      <input type="hidden" name="sub-type" value="widget">
-      <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
-      <input type="hidden" id="_wpnonce" name="_wpnonce" value="b0a1e6c4b6">
       <input type="submit" value="Follow me!">
     </p>
+
   </form>
+
+
 </section>
- 
-    </body>
+ </body>
+
+
 </html>    

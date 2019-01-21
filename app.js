@@ -95,11 +95,6 @@ function addEmailToMailchimp(reqbody) {
     console.log(body);
 })};
 
-
-
-
-/*
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("server is now running..");
 });
-*/

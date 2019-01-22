@@ -1,11 +1,20 @@
 i.icon {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .container.main {
-    margin-top: 7em;
+    margin-top: 8em;
+    
 }
 
 #delete {
     display: inline;
 }
+
+/*
+* {
+    font-size: 100%;
+    font-family:  Helvetica Neue;
+}
+
+*/

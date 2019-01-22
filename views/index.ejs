@@ -1,7 +1,7 @@
 <% include ./partials/header %>
 
 <div class="ui main text container">
-    <div class="ui huge header">Gary's Blog</div>
+    <div class="ui huge header">Gary's Notebook</div>
     <div class="ui top attached segment">
         
     <div class="ui divided items">
@@ -10,14 +10,13 @@
             <div class="content">
                 <a class="header" href="/blogs/<%= blog._id %>"><%= blog.title%></a>
                 <div class="meta">
-                    <span class="cinema"><%= blog.created.toDateString()%></span>
+                    <%let options = {  weekday: 'long', year: 'numeric', month: 'short', day: 'numeric'}%>
+                    <span class="cinema"><%= blog.created.toLocaleDateString('en-us', options)%></span>
                 </div>
                 <div class="description">
                     <p><%-blog.snippet%></p>
                 </div>
                 <div class="extra">
-                    <div class="ui label">IMAX</div>
-                    <div class="ui label"><i class="globe icon"></i> Additional Languages</div>
                     <a href="/blogs/<%= blog._id %>">Read More</a>
                 </div>
             </div>
